@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Enable AspectJ style of Spring AOP -->
+    <aop:aspectj-autoproxy/>
+
+    <!-- Configure BraveKnight Bean and initialize it -->
+    <bean id = "knight" class = "com.spring.Basics.knights.BraveKnight">
+        <constructor-arg ref="slayDragonQuest"/>
+    </bean>
+
+    <!-- Configure SlayDragonQuest Bean and initialize it -->
+    <bean id = "slayDragonQuest" class="com.spring.Basics.knights.SlayDragonQuest">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+
+    <!-- Configure Minstrel Bean and initialize it -->
+    <bean id="minstrel" class="com.spring.Basics.knights.Minstrel">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+
+    <!-- Configure Aspect Beans, without this Aspects advices wont execute -->
+    <bean name="knightBeforeAspect" class="com.spring.Basics.knightaspect.KnightBeforeAspect" />
+    <bean name="knightAfterAspect" class="com.spring.Basics.knightaspect.KnightAfterAspect" />
+
+</beans>
