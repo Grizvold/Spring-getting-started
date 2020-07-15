@@ -3,17 +3,24 @@ package com.spring.Basics.knightaspect;
 import com.spring.Basics.knights.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class KnightConfig {
-    @Bean
-    public Knight knight() {
+    @Bean(name = "knight")
+    @Scope(value = "prototype")
+    public Knight knight()   {
         return new BraveKnight(quest());
     }
 
     @Bean
     public Quest quest() {
         return new SlayDragonQuest(System.out);
+    }
+
+    @Bean(name = "damsel")
+    public RescueDamselQuest rescueDamselQuest() {
+        return new RescueDamselQuest();
     }
 
     @Bean
