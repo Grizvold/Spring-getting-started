@@ -1,5 +1,6 @@
 package com.spring.Basics.knightaspect;
 
+import com.spring.Basics.knightaspect.config.KnightConfig;
 import com.spring.Basics.knights.BraveKnight;
 import com.spring.Basics.knights.Knight;
 import com.spring.Basics.knights.RescueDamselQuest;

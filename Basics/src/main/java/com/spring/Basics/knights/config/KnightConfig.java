@@ -1,5 +1,6 @@
-package com.spring.Basics.knights;
+package com.spring.Basics.knights.config;
 
+import com.spring.Basics.knights.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

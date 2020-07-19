@@ -1,8 +1,6 @@
 package com.spring.Basics.knights;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class BraveKnightTest {
@@ -15,6 +13,10 @@ public class BraveKnightTest {
 
         Quest slayDragonQuest = new SlayDragonQuest(System.out);
         knight.setQuest(slayDragonQuest);
+        knight.embarkOnQuest();
+
+        Quest saveDamsel = new RescueDamselQuest();
+        knight.setQuest(saveDamsel);
         knight.embarkOnQuest();
     }
 }

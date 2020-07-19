@@ -2,7 +2,7 @@ package com.spring.Basics.soundsystem;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("sgtPeppers")
 public class SgtPeppers implements  CompactDisc{
 
     private String title = "Sgt. Pepper's Lonely Hearts Club Band";
@@ -10,6 +10,6 @@ public class SgtPeppers implements  CompactDisc{
 
     @Override
     public void play() {
-        System.out.println("Playing " + title + " by " + artist);
+            System.out.println("Playing " + title + " by " + artist);
     }
 }

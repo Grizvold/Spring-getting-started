@@ -1,6 +1,9 @@
-package com.spring.Basics.knightaspect;
+package com.spring.Basics.knightaspect.config;
 
+import com.spring.Basics.knightaspect.KnightAfterAspect;
+import com.spring.Basics.knightaspect.KnightBeforeAspect;
 import com.spring.Basics.knights.*;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

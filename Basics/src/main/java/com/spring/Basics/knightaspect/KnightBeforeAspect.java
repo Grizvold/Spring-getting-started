@@ -1,10 +1,10 @@
 package com.spring.Basics.knightaspect;
 
+import com.spring.Basics.knightaspect.config.KnightConfig;
 import com.spring.Basics.knights.Minstrel;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @Aspect
 public class KnightBeforeAspect {
@@ -12,8 +12,8 @@ public class KnightBeforeAspect {
     @Before("execution(public void embarkOnQuest())")
     public void doSomethingBeforeQuest() {
         System.out.println("doing something before embarking on quest");
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("knight.xml");
-        Minstrel minstrel = (Minstrel) context.getBean("minstrel");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(KnightConfig.class);
+        Minstrel minstrel = (Minstrel) context.getBean(Minstrel.class);
         minstrel.singBeforeQuest();
     }
 

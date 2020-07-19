@@ -1,5 +1,6 @@
-package com.spring.Basics.helloworld;
+package com.spring.Basics.helloworld.config;
 
+import com.spring.Basics.helloworld.HelloWorld;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
