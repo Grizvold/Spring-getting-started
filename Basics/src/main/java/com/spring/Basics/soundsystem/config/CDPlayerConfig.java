@@ -9,8 +9,10 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import(CDConfig.class)
 public class CDPlayerConfig {
-        @Bean
+    @Bean
     public CDPlayer cdPlayer(CompactDisc compactDisc) {
-        return new CDPlayer(compactDisc);
+        CDPlayer cdPlayer = new CDPlayer(compactDisc);
+        cdPlayer.setCd(compactDisc);
+        return cdPlayer;
     }
 }

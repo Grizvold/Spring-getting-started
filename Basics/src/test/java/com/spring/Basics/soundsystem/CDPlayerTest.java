@@ -15,7 +15,7 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 @ContextConfiguration(classes = CDPlayerConfig.class)
 public class CDPlayerTest {
     @Rule
-    public final SystemOutRule log = new SystemOutRule().enableLog();
+    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Autowired
     private MediaPlayer mediaPlayer;
@@ -31,10 +31,13 @@ public class CDPlayerTest {
     }
 
     @Test
-    public void play() {
+    public void playSystemOut() {
+        String title = "Sgt. Pepper's Lonely Hearts Club Band";
+        String artist = "The Beatles";
+
         mediaPlayer.play();
-        assertEquals(
-                "Playing Sgt. Pepper's Lonely Hearts Club Band" + " by The Beatles\n",
-                log.getLog());
+        systemOutRule.clearLog();
+        System.out.print("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles");
+        assertEquals("Playing " + title + " by " + artist, systemOutRule.getLog());
     }
 }
