@@ -1,15 +1,12 @@
 package com.spring.Basics.soundsystem.config;
 
-import com.spring.Basics.soundsystem.CDPlayer;
-import com.spring.Basics.soundsystem.CompactDisc;
-import com.spring.Basics.soundsystem.MediaPlayer;
-import com.spring.Basics.soundsystem.SgtPeppers;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+import com.spring.Basics.soundsystem.*;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 //not type safe since its passed as String so in case of refactor it will be error
@@ -17,7 +14,7 @@ import org.springframework.stereotype.Component;
 //@ComponentScan(basePackageClasses = {SgtPeppers.class, CDPlayer.class})
 //@Component("cdConfig")
 public class CDConfig {
-//    private static ApplicationContext applicationContext;
+    //    private static ApplicationContext applicationContext;
 //
 //    public static void main(String[] args) {
 //        applicationContext = new AnnotationConfigApplicationContext(CDConfig.class);
@@ -26,8 +23,33 @@ public class CDConfig {
 //            System.out.println(beanName);
 //        }
 //    }
+
+    @Profile("dev")
+    @Primary
+//    @Qualifier("lonelyHeartsClubBand")
     @Bean(name = "lonelyHeartsClubBand")
-    public CompactDisc compactDisc() {
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public CompactDisc sgtPeppers() {
         return new SgtPeppers();
+    }
+
+    @Profile("dev")
+    @Qualifier("blankDisc")
+    @Bean(name = "blankDisc")
+    @Conditional(BlankDiscCondition.class)
+    public CompactDisc blankDisc() {
+        String title = "Feeling Good";
+        String artist = "ZHU";
+        List<String> tracks = new ArrayList<>();
+
+        tracks.add("Faded");
+        tracks.add("Automatic");
+        tracks.add("Working For It");
+        tracks.add("Generationwhy");
+        tracks.add("Hometown Girl");
+        tracks.add("Nightcrawler");
+        tracks.add("Intoxicate");
+
+        return new BlankDisc(title, artist, tracks);
     }
 }

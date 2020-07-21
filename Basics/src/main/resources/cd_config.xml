@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/c
-        http://www.springframework.org/schema/p
-        http://www.springframework.org/schema/util/spring-util.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--  configuration details  -->
     <bean id="compactDisc"
-          class="com.spring.Basics.soundsystem.BlankDisc"
-          c:_title="Feeling Good"
-          c:_artist="ZHU"
-          p:title="Feeling Good"
-          p:artist="ZHU">
+          class="com.spring.Basics.soundsystem.BlankDisc" >
+        <constructor-arg value="Feeling Good"/>
+        <constructor-arg value="ZHU"/>
+        <constructor-arg>
+            <list>
+                <value>Faded</value>
+                <value>Automatic</value>
+                <value>Working For It</value>
+                <value>Generationwhy</value>
+                <value>Hometown Girl</value>
+                <value>Nightcrawler</value>
+                <value>Intoxicate</value>
+            </list>
+        </constructor-arg>
+        <property name="title" value="Feeling Good"/>
+        <property name="artist" value="ZHU"/>
         <property name="tracks">
             <list>
                 <value>Faded</value>
@@ -33,10 +37,8 @@
         </property>
     </bean>
 
-    <bean id="cdPlayer"
-          class="com.spring.Basics.soundsystem.CDPlayer"
-          c:_0="compactDisc"
-          p:compactDisc-ref="compactDisc">
+    <bean id="beatlesDisc"
+          class="com.spring.Basics.soundsystem.SgtPeppers">
     </bean>
 
 </beans>
