@@ -1,7 +1,10 @@
 package com.spring.Basics.knights;
 
+import org.springframework.stereotype.Component;
+
 import java.io.PrintStream;
 
+@Component
 public class Minstrel {
     private PrintStream stream;
 

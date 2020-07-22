@@ -1,5 +1,8 @@
 package com.spring.Basics.knights;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BraveKnight implements Knight {
     private Quest quest;
 

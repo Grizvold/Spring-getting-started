@@ -30,12 +30,23 @@ public class CDConfig {
     @Bean(name = "lonelyHeartsClubBand")
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public CompactDisc sgtPeppers() {
-        return new SgtPeppers();
+        BlankDisc blankDisc = new BlankDisc();
+        blankDisc.setArtist("Sgt. Pepper's Lonely Hearts Club Band");
+        blankDisc.setTitle("The Beatles");
+        List<String> tracks = new ArrayList<>();
+        tracks.add("Sgt. Pepper's Lonely Hearts Club Band");
+        tracks.add("With a Little Help from My Friends");
+        tracks.add("Lucy in the Sky with Diamonds");
+        tracks.add("Getting Better");
+        tracks.add("Fixing a Hole");
+        blankDisc.setTracks(tracks);
+        return blankDisc;
     }
 
     @Profile("dev")
     @Qualifier("blankDisc")
     @Bean(name = "blankDisc")
+    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     @Conditional(BlankDiscCondition.class)
     public CompactDisc blankDisc() {
         String title = "Feeling Good";
@@ -51,5 +62,12 @@ public class CDConfig {
         tracks.add("Intoxicate");
 
         return new BlankDisc(title, artist, tracks);
+    }
+
+    @Profile("dev")
+    @Qualifier("deepHouse")
+    @Bean(name = "deepHouse")
+    public CompactDisc deepHouse() {
+        return new DeepHouseHolder();
     }
 }

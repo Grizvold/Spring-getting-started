@@ -1,5 +1,6 @@
 package com.spring.Basics.soundsystem;
 
+import com.spring.Basics.soundsystem.aspects.TrackCounter;
 import com.spring.Basics.soundsystem.config.CDConfig;
 import com.spring.Basics.soundsystem.config.CDPlayerConfig;
 import com.spring.Basics.soundsystem.config.SoundSystemConfig;
@@ -22,6 +23,9 @@ public class CDPlayerTest {
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Autowired
+    private TrackCounter trackCounter;
+
+    @Autowired
     private MediaPlayer mediaPlayer;
 
     //injects CompactDisc to the test
@@ -38,6 +42,31 @@ public class CDPlayerTest {
     @Autowired
     private CompactDisc cd_2;
 
+    @Autowired
+    @Qualifier("deepHouse")
+    private CompactDisc deepHouseCD;
+
+    @Test
+    public void trackCounter() {
+        assertNotNull(trackCounter);
+        cd_1.playTrack(1);
+        cd_1.playTrack(2);
+        cd_1.playTrack(3);
+        cd_1.playTrack(3);
+        cd_1.playTrack(3);
+        cd_1.playTrack(3);
+        cd_1.playTrack(7);
+        cd_1.playTrack(7);  
+
+        assertEquals(1, trackCounter.getPlayCount(1));
+        assertEquals(1, trackCounter.getPlayCount(2));
+        assertEquals(4, trackCounter.getPlayCount(3));
+        assertEquals(0, trackCounter.getPlayCount(4));
+        assertEquals(0, trackCounter.getPlayCount(5));
+        assertEquals(0, trackCounter.getPlayCount(6));
+        assertEquals(2, trackCounter.getPlayCount(7));
+    }
+
     @Test
     public void cdShouldNotBeNull() {
         System.out.println("Should be blankDisc");
@@ -52,6 +81,14 @@ public class CDPlayerTest {
         System.out.println(cd_1);
         assertNotNull(cd_1);
         cd_1.play();
+    }
+
+    @Test
+    public void placeHolderTest() {
+        System.out.println("\nShould be Deep House");
+        System.out.println(deepHouseCD);
+        assertNotNull(deepHouseCD);
+        deepHouseCD.play();
     }
 
     @Test

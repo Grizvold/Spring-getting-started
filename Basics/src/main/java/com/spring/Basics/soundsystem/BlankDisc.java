@@ -14,6 +14,10 @@ public class BlankDisc implements CompactDisc {
     private List<String> tracks;
     private  boolean condition = true;
 
+    public BlankDisc() {
+
+    }
+
     public BlankDisc(String title, String artist, List<String> tracks) {
         this.title = title;
         this.artist = artist;
@@ -38,5 +42,10 @@ public class BlankDisc implements CompactDisc {
         for (String track: tracks) {
             System.out.println("-Track: " + track);
         }
+    }
+
+    @Override
+    public void playTrack(int track) {
+        System.out.println("Playing track number: " + track);
     }
 }

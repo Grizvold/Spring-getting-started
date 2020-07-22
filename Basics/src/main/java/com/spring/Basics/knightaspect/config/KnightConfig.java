@@ -4,13 +4,14 @@ import com.spring.Basics.knightaspect.KnightAfterAspect;
 import com.spring.Basics.knightaspect.KnightBeforeAspect;
 import com.spring.Basics.knights.*;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@ComponentScan
+@EnableAspectJAutoProxy
+@Import(KnightAspectConfig.class)
 public class KnightConfig {
-    @Bean(name = "knight")
+    @Bean(name = "braveKnight")
     @Scope(value = "prototype")
     public Knight knight()   {
         return new BraveKnight(quest());
@@ -29,15 +30,5 @@ public class KnightConfig {
     @Bean
     public Minstrel minstrel() {
         return new Minstrel(System.out);
-    }
-
-    @Bean
-    public KnightBeforeAspect knightBeforeAspect() {
-        return new KnightBeforeAspect();
-    }
-
-    @Bean
-    public KnightAfterAspect knightAfterAspect() {
-        return new KnightAfterAspect();
     }
 }
