@@ -8,15 +8,21 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <aop:aspectj-autoproxy/>
 
-    <bean id = "knight" class = "com.spring.Basics.knights.BraveKnight">
+    <bean id = "knight"
+          class = "com.spring.Basics.knights.BraveKnight"
+          scope="prototype">
         <constructor-arg ref="slayDragonQuest"/>
     </bean>
 
-    <bean id = "slayDragonQuest" class="com.spring.Basics.knights.SlayDragonQuest">
+    <bean id = "slayDragonQuest"
+          class="com.spring.Basics.knights.SlayDragonQuest"
+          scope="singleton">
         <constructor-arg value="#{T(System).out}" />
     </bean>
 
-    <bean id="minstrel" class="com.spring.Basics.knights.Minstrel">
+    <bean id="minstrel"
+          class="com.spring.Basics.knights.Minstrel"
+          scope="singleton">
         <constructor-arg value="#{T(System).out}" />
     </bean>
 
