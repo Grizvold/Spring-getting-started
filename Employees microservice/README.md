@@ -3,7 +3,7 @@
 ## Employee microservice requirements:
 
 * __Employees:__
-- 	[ ] create new project from Spring Initializer <https://start.spring.io>
+- [ ] create new project from Spring Initializer <https://start.spring.io>
 - [ ] the microservice should provide a REST/JSON API for CRUD operations on
 	information of employees in an organization.
 - [ ] the employee details should include: name, country, city, id and sallary 
@@ -29,28 +29,28 @@
 ## Tweats to the microservice:
 After you have your microservice up and running, start adding the below list of enhancements and modification:
 	
-* __Logging__
-* __Replace and System.out prints to Spring logging__
-* __Actuators:__
-+ Add actuators
-+ use postman to check health and which beans were injected
-* __application.properties__
- * review common properties list: 
+1. __Logging__
+1. __Replace and System.out prints to Spring logging__
+1. __Actuators:__
+   + Add actuators
+   + use postman to check health and which beans were injected
+1. __application.properties__
+   * review common properties list: 
  	<https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html>
- * change the server port
- * inject some property that is used in the code with @Value
- * inject the property once from application.properties, once from command line
+   * change the server port
+   * inject some property that is used in the code with @Value
+   * inject the property once from application.properties, once from command line
 	which took precedence?
- * migrate the application.properties to applitaion.yml
- * Add command line runner to the initialization of the Spring Boot application
-* __Controller:__
- * add an Aspect to the REST controller methods
- * add a Filter or Interceptor. See:
+   * migrate the application.properties to applitaion.yml
+   * Add command line runner to the initialization of the Spring Boot application
+1. __Controller:__
+   * add an Aspect to the REST controller methods
+   * add a Filter or Interceptor. See:
 	<https://stackoverflow.com/questions/35856454/difference-between-interceptor-and-filter-in-spring-mvc>
- * The added Aspect, Filter and Interceptor should add a log indicating they are invoked and 
+   * The added Aspect, Filter and Interceptor should add a log indicating they are invoked and 
 	additional availabale information on the operation
- * add an exeption handler (use @ExeptionHandler)
-* __Profiles:__
- * Add 2 profiles according to which, a certain type of bean is created. For
+   * add an exeption handler (use @ExeptionHandler)
+1. __Profiles:__
+   * Add 2 profiles according to which, a certain type of bean is created. For
 	example, a "production" and "development" profiles according to which the
 	transient Java collection will be a different subtype of Map.
