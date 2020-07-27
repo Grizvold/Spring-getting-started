@@ -3,22 +3,22 @@
 ## Employee microservice requirements:
 
 * __Employees:__
-- [ ] create new project from Spring Initializer <https://start.spring.io>
-- [ ] the microservice should provide a REST/JSON API for CRUD operations on
-	information of employees in an organization.
-- [ ] the employee details should include: name, country, city, id and sallary 
-	USD.
-- [ ] the information is stored in Java collection e.g. Map.
-- [ ] the Map should be configured as a Bean.
-- [ ] the max number of emplyees allowed, must not be hard coded and should be
-	as an externalized configuration param: autowired using @Value.
+   - [ ] create new project from Spring Initializer <https://start.spring.io>
+   - [ ] the microservice should provide a REST/JSON API for CRUD operations on
+	  information of employees in an organization.
+   - [ ] the employee details should include: name, country, city, id and sallary 
+	  USD.
+   - [ ] the information is stored in Java collection e.g. Map.
+   - [ ] the Map should be configured as a Bean.
+   - [ ] the max number of emplyees allowed, must not be hard coded and should be
+	  as an externalized configuration param: autowired using @Value.
 * __Salaries:__
-- [ ] the provided USD should be converted to the local currency using a 3rd
-	convertion service.
-- [ ] use Jackson for parsing 3rd party service JSON payload.
+   - [ ] the provided USD should be converted to the local currency using a 3rd
+	  convertion service.
+   - [ ] use Jackson for parsing 3rd party service JSON payload.
 * __Currency conversion service__
-- [ ] See basic API example usage: <https://free.currencyconverterapi.com>
-- [ ] <https://free.currconv.com/api/v7/convert?q=USD_ILS&compact=ultra&apiKey=b5c63df7a95099b06654> 
+   - [ ] See basic API example usage: <https://free.currencyconverterapi.com>
+   - [ ] <https://free.currconv.com/api/v7/convert?q=USD_ILS&compact=ultra&apiKey=b5c63df7a95099b06654> 
 
 ## Working with RestTemplate:
 * <https://www.baeldung.com/rest-template> 
@@ -27,7 +27,7 @@
 * <https://www.baeldung.com/spring-rest-template-list> 
 	
 ## Tweats to the microservice:
-After you have your microservice up and running, start adding the below list of enhancements and modification:
+__After you have your microservice up and running, start adding the below list of enhancements and modification:__
 	
 1. __Logging__
 1. __Replace and System.out prints to Spring logging__
