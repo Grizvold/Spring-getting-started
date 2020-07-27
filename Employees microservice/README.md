@@ -32,8 +32,8 @@ After you have your microservice up and running, start adding the below list of 
 * __Logging__
 * __Replace and System.out prints to Spring logging__
 * __Actuators:__
- * Add actuators
- * use postman to check health and which beans were injected
++ Add actuators
++ use postman to check health and which beans were injected
 * __application.properties__
  * review common properties list: 
  	<https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html>
