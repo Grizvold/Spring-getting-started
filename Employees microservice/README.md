@@ -29,7 +29,7 @@
 ## Tweats to the microservice:
 	After you have your microservice up and running, start adding the below list of enhancements and modification:
 	
-	* __Logging__
+	* ####Logging
 	* __Replace and System.out prints to Spring logging__
 	* __Actuators:__
 		* Add actuators
