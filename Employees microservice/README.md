@@ -2,20 +2,55 @@
 
 ## Employee microservice requirements:
 
-	* Employees:
-		-[ ] create new project from Spring Initializer https://start.spring.io/
-		-[ ] the microservice should provide a REST/JSON API for CRUD operations on
+	* **Employees:** 1
+		- [ ] create new project from Spring Initializer https://start.spring.io/ - automatic!
+		- [ ] the microservice should provide a REST/JSON API for CRUD operations on
 			information of employees in an organization.
-		-[ ] the employee details should include: name, country, city, id and sallary 
+		- [ ] the employee details should include: name, country, city, id and sallary 
 			in USD.
-		-[ ] the information is stored in Java collection e.g. Map.
-		-[ ] the Map should be configured as a Bean.
-		-[ ] the max number of emplyees allowed, must not be hard coded and should be
+		- [ ] the information is stored in Java collection e.g. Map.
+		- [ ] the Map should be configured as a Bean.
+		- [ ] the max number of emplyees allowed, must not be hard coded and should be
 			injected as an externalized configuration param: autowired using @Value.
-	* Salaries:
-		-[ ] the provided USD should be converted to the local currency using a 3rd
+	* **Salaries:** 2
+		- [ ] the provided USD should be converted to the local currency using a 3rd
 			party convertion service.
-		-[ ] use Jackson for parsing 3rd party service JSON payload.
-	* Currency conversion service:
-		-[ ] See basic API example usage: https://free.currencyconverterapi.com/
-		-[ ] https://free.currconv.com/api/v7/convert?q=USD_ILS&compact=ultra&apiKey=b5c63df7a95099b06654
+		- [ ] use Jackson for parsing 3rd party service JSON payload.
+	* **Currency conversion service:** 3
+		- [ ] See basic API example usage: https://free.currencyconverterapi.com/ - automatic!
+		- [ ] https://free.currconv.com/api/v7/convert?q=USD_ILS&compact=ultra&apiKey=b5c63df7a95099b06654 - automatic!
+
+## Working with RestTemplate:
+	* https://www.baeldung.com/rest-template 1
+	* https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html 2
+	* https://stackoverflow.com/questions/9381665/how-can-we-configure-the-internal-jackson-mapper-when-using-resttemplate 3
+	* https://www.baeldung.com/spring-rest-template-list 4
+	
+## Tweats to the microservice:
+	After you have your microservice up and running, start adding the below list of enhancements and modification:
+	
+	* Logging
+	* Replace and System.out prints to Spring logging
+	* Actuators:
+		* Add actuators
+		* use postman to check health and which beans were injected
+	* application.properties
+		* review common properties list: 
+			https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+		* change the server port
+		* inject some property that is used in the code with @Value
+		* inject the property once from application.properties, once from command line
+			which took precedence?
+		* migrate the application.properties to applitaion.yml
+	* Add command line runner to the initialization of the Spring Boot application
+	* Controller:
+		* add an Aspect to the REST controller methods
+		* add a Filter or Interceptor. See:
+			https://stackoverflow.com/questions/35856454/difference-between-interceptor-and-filter-in-spring-mvc
+		* The added Aspect, Filter and Interceptor should add a log indicating they are invoked and 
+			additional availabale information on the operation
+		* add an exeption handler (use @ExeptionHandler)
+	* Profiles:
+		* Add 2 profiles according to which, a certain type of bean is created. For
+			example, a "production" and "development" profiles according to which the
+			transient Java collection will be a different subtype of Map.
