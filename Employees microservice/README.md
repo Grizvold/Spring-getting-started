@@ -2,7 +2,7 @@
 
 ## Employee microservice requirements:
 
-	* __Employees:__
+* __Employees:__
 		- [ ] create new project from Spring Initializer <https://start.spring.io>
 		- [ ] the microservice should provide a REST/JSON API for CRUD operations on
 			information of employees in an organization.
