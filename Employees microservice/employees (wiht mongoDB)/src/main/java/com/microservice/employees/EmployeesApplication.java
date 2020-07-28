@@ -8,37 +8,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.jms.annotation.EnableJms;
 
 import java.util.*;
 
 @SpringBootApplication
-@EnableAspectJAutoProxy
+//TODO: add packages
+@EnableMongoRepositories
+@EnableJms
 public class EmployeesApplication implements CommandLineRunner{
-
-	@Profile("development")
-	@Bean
-	public Map<Integer, Employee> employeeMapDevelopment() {
-		return new HashMap<>();
-	}
-
-	@Profile("production")
-	@Bean
-	public Map<Integer, Employee> employeeMapProduction() {
-		return new LinkedHashMap<>();
-	}
-
-	@Bean
-	public CommandLineRunner commandLineRunner (ApplicationContext context){
-		return args ->{
-			System.out.println("Beans provided by spring boot\n");
-
-			String[] beanNames = context.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName: beanNames) {
-				System.out.println(beanName);
-			}
-		};
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeesApplication.class, args);

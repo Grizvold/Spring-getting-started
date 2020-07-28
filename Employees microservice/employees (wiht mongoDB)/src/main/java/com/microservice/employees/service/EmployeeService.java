@@ -8,10 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class EmployeeService {
+    //TODO: change Map to repository
     @Autowired
     private Map<Integer, Employee> employeeMap;
 
@@ -41,7 +44,8 @@ public class EmployeeService {
                             employee.getCountry(),
                             employee.getCity(),
                             salary_ILS,
-                            employee.getId());
+                            employee.getId(),
+                            employee.getEmail());
     }
 
     public Map<Integer, Employee> getAllEmployees() {
@@ -68,5 +72,15 @@ public class EmployeeService {
         Map<String, Double> responseData = responseEntity.getBody();
 
         return responseData.get(coin_type) * salary_USD;
+    }
+
+
+    public List<String> getEmployeesEmails() {
+        List<String> employeeEmails = new ArrayList<>();
+        for (Map.Entry entry: employeeMap.entrySet()) {
+
+        }
+
+        return employeeEmails;
     }
 }
