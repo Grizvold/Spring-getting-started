@@ -1,6 +1,6 @@
 package com.microservice.employees;
 
-import com.microservice.employees.model.Employee;
+import com.microservice.employees.document.Employee;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

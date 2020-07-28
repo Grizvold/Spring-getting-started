@@ -2,7 +2,7 @@ package com.microservice.employees.controllers;
 
 import com.microservice.employees.exeptionhandling.EmployeeServiceException;
 import com.microservice.employees.exeptionhandling.ResourceNotFoundException;
-import com.microservice.employees.model.Employee;
+import com.microservice.employees.document.Employee;
 import com.microservice.employees.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

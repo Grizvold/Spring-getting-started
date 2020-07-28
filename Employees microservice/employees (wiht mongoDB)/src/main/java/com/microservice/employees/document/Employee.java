@@ -1,18 +1,26 @@
-package com.microservice.employees.model;
+package com.microservice.employees.document;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collation = "employee")
 public class Employee {
     private String name;
     private String country;
     private String city;
     private Double salary;
+    private String email;
+
+    @Id
     private Integer id;
 
-    public Employee(String name, String country, String city, Double salary, Integer id) {
+    public Employee(String name, String country, String city, Double salary, Integer id, String email) {
         this.name = name;
         this.country = country;
         this.city = city;
         this.salary = salary;
         this.id = id;
+        this.email = email;
     }
 
     public String getName() {
@@ -53,5 +61,13 @@ public class Employee {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

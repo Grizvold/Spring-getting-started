@@ -1,7 +1,7 @@
 package com.microservice.employees.service;
 
 import com.microservice.employees.exeptionhandling.EmployeeServiceException;
-import com.microservice.employees.model.Employee;
+import com.microservice.employees.document.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
