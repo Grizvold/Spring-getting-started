@@ -1,24 +1,24 @@
 # Spring basics - DI, AOP, IoC
 
-* __General knowledge:__
+__General knowledge:__
    * <https://en.wikipedia.org/wiki/Spring_Framework>
    * <http://springtutorials.com/spring-framework-vs-rest-of-the-world/>
    
-* __DI and Spring Beans, in a nutshel:__
+__DI and Spring Beans, in a nutshel:__
    * <https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring>
    * <https://www.vogella.com/tutorials/SpringDependencyInjection/article.html>
    
-* __First DI hands-on examples:__
+__First DI hands-on examples:__
    * <https://www.tutorialspoint.com/spring/>
    
-* __Deeper reading and coding into Spring Core(IoC, DI, AOP):__
+__Deeper reading and coding into Spring Core(IoC, DI, AOP):__
    * <https://www.dropbox.com/s/sq8phrogaeisvwe/Spring%20in%20Action%20-%204th%20Edition.2014.11.pdf>
    
-* __Spring official documentation:__
+__Spring official documentation:__
    * <https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/>
    * <https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html#spring-introduction>
    
-* __Keywords:__
+__Keywords:__
    * Web Application Framework
    * Dependency injection
    * IoC
@@ -56,7 +56,7 @@
    * @Around
    * @Before/@After
    
-* __Questions:__
+__Questions:__
    1. What is DI?
    1. What is relationship between inversion of control and dependency injection?
    1. What are the three styles of dependency injection?
@@ -84,7 +84,7 @@
    1. What is the difference between @Component & @Service?
    1. Name some of the design patterns used in Spring Framework.
    
-* __Extra Questions:__
+__Extra Questions:__
    1. How ApplicationContext and XmlBeanFactory compare in terms of lazy/eager instantiation of Spring beans?
    1. When should you use ApplicationContext and when XmlBeanFactory?
    1. In which order are the beans instantiated?
